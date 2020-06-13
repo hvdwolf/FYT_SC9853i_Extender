@@ -1,0 +1,11 @@
+# Download launch4j from http://launch4j.sourceforge.net/
+launch4j is old and still needs java-8
+
+copy the full FYT_SC9853i_Extender.jar into this folder
+copy the version 11 jre into this folder. Make sure it is unzippeed and the folder simply named jre.
+
+Run launch4j as "launch4j fse-jre.xml" to create an exe andhave it linked to the jre.
+Run launch4j as "launch4j fse.xml" to create anexe that simply uses the system wide jre 
+on the windows machine it is run on. That machine has to has the Version 11 jre/jdk or newer.
+
+
