@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="org.hvdw.fyt_sc9853i_extender.mainScreen">
+  <grid id="27dc6" binding="rootPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="10" left="10" bottom="10" right="10"/>
+    <constraints>
+      <xy x="20" y="20" width="1027" height="725"/>
+    </constraints>
+    <properties>
+      <minimumSize width="1024" height="700"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <tabbedpane id="d5865" binding="tabbedPane1" default-binding="true">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <minimum-size width="1000" height="676"/>
+            <preferred-size width="1000" height="676"/>
+          </grid>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <grid id="57cd2" binding="Mods" layout-manager="GridLayoutManager" row-count="5" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="20">
+            <margin top="10" left="10" bottom="10" right="10"/>
+            <constraints>
+              <tabbedpane title-resource-bundle="Strings" title-key="tabMods"/>
+            </constraints>
+            <properties>
+              <minimumSize width="994" height="670"/>
+              <preferredSize width="994" height="670"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="568ad" class="javax.swing.JLabel" binding="tabModsTopLabelText">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                    <minimum-size width="950" height="-1"/>
+                    <preferred-size width="950" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text resource-bundle="Strings" key="tabModsTopLabelText"/>
+                </properties>
+              </component>
+              <vspacer id="357f0">
+                <constraints>
+                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </vspacer>
+              <grid id="9e04a" binding="mainserverpanel" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="line"/>
+                <children>
+                  <component id="385b7" class="javax.swing.JLabel" binding="lblmainservermod">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="2" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <text resource-bundle="Strings" key="lblmainservermod"/>
+                    </properties>
+                  </component>
+                  <vspacer id="85a9c">
+                    <constraints>
+                      <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                  </vspacer>
+                  <grid id="9dc90" binding="mainservercomboboxpanel" layout-manager="FlowLayout" hgap="25" vgap="5" flow-align="1">
+                    <constraints>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="1" use-parent-layout="false"/>
+                    </constraints>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="60e37" class="javax.swing.JRadioButton" binding="rbtn_original_msmods">
+                        <constraints/>
+                        <properties>
+                          <selected value="true"/>
+                          <text resource-bundle="Strings" key="rbtn_original_msmods"/>
+                        </properties>
+                      </component>
+                      <component id="91285" class="javax.swing.JRadioButton" binding="rbtn_extended_msmods">
+                        <constraints/>
+                        <properties>
+                          <text resource-bundle="Strings" key="rbtn_extended_msmods"/>
+                        </properties>
+                      </component>
+                      <component id="2ad5c" class="javax.swing.JRadioButton" binding="rbtn_nokill_mods">
+                        <constraints/>
+                        <properties>
+                          <text resource-bundle="Strings" key="rbtn_nokill_msmods"/>
+                        </properties>
+                      </component>
+                      <component id="495a4" class="javax.swing.JComboBox" binding="comboBoxmsmodsdates">
+                        <constraints/>
+                        <properties/>
+                      </component>
+                      <component id="5163" class="javax.swing.JButton" binding="btnHelp_msmods">
+                        <constraints/>
+                        <properties>
+                          <text resource-bundle="Strings" key="btnHelpgeneral"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                </children>
+              </grid>
+              <grid id="3e6fc" binding="progresspanel" layout-manager="FlowLayout" hgap="25" vgap="5" flow-align="2">
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="1" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="ffa4e" class="javax.swing.JLabel" binding="progressText">
+                    <constraints/>
+                    <properties>
+                      <font style="1"/>
+                      <text resource-bundle="Strings" key="progressText"/>
+                    </properties>
+                  </component>
+                  <component id="2b559" class="javax.swing.JProgressBar" binding="progressBar">
+                    <constraints/>
+                    <properties>
+                      <indeterminate value="true"/>
+                      <preferredSize width="200" height="15"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <grid id="b2f71" binding="othermodspanel" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="line"/>
+                <children>
+                  <component id="d362" class="javax.swing.JLabel" binding="lblothermods">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="2" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <text resource-bundle="Strings" key="lbl_othermods"/>
+                    </properties>
+                  </component>
+                  <grid id="31437" binding="radiomodcomboboxpanel" layout-manager="FlowLayout" hgap="25" vgap="5" flow-align="1">
+                    <constraints>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="1" use-parent-layout="false"/>
+                    </constraints>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="e579a" class="javax.swing.JLabel" binding="lblradiomods">
+                        <constraints/>
+                        <properties>
+                          <text resource-bundle="Strings" key="lbl_radiomods"/>
+                        </properties>
+                      </component>
+                      <component id="d6be3" class="javax.swing.JComboBox" binding="comboBoxradiomods">
+                        <constraints/>
+                        <properties/>
+                      </component>
+                    </children>
+                  </grid>
+                </children>
+              </grid>
+            </children>
+          </grid>
+          <grid id="84e8c" binding="Other" layout-manager="GridLayoutManager" row-count="3" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="20">
+            <margin top="10" left="10" bottom="10" right="10"/>
+            <constraints>
+              <tabbedpane title-resource-bundle="Strings" title-key="tabOther"/>
+            </constraints>
+            <properties>
+              <minimumSize width="994" height="670"/>
+              <preferredSize width="994" height="670"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <grid id="8e36f" binding="hosts_ringtone_options" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="5" left="0" bottom="5" right="0"/>
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="3" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="line"/>
+                <children>
+                  <grid id="b5dd6" layout-manager="FlowLayout" hgap="25" vgap="5" flow-align="1">
+                    <constraints>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="7" anchor="1" fill="0" indent="2" use-parent-layout="false"/>
+                    </constraints>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="dc210" class="javax.swing.JButton" binding="btnExpandHosts">
+                        <constraints/>
+                        <properties>
+                          <text resource-bundle="Strings" key="btn_Expand_hosts_file"/>
+                          <toolTipText resource-bundle="Strings" key="tooltip_expand_hosts_file"/>
+                        </properties>
+                      </component>
+                      <component id="c2b32" class="javax.swing.JButton" binding="btnRingtone">
+                        <constraints/>
+                        <properties>
+                          <text resource-bundle="Strings" key="btnRingtone"/>
+                          <toolTipText resource-bundle="Strings" key="tooltip_ringtone"/>
+                        </properties>
+                      </component>
+                      <component id="db08a" class="javax.swing.JButton" binding="btnWindowApk">
+                        <constraints/>
+                        <properties>
+                          <text resource-bundle="Strings" key="btnWindowapk"/>
+                        </properties>
+                      </component>
+                      <component id="209f1" class="javax.swing.JButton" binding="btnHelpExpandHostsRingtone">
+                        <constraints/>
+                        <properties>
+                          <text resource-bundle="Strings" key="btnHelpgeneral"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                  <vspacer id="e5efa">
+                    <constraints>
+                      <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="2" use-parent-layout="false"/>
+                    </constraints>
+                  </vspacer>
+                  <component id="f032a" class="javax.swing.JLabel" binding="lbl_ringtone_other_options_text">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="9" fill="0" indent="2" use-parent-layout="false">
+                        <minimum-size width="950" height="-1"/>
+                        <preferred-size width="950" height="-1"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <text resource-bundle="Strings" key="lbl_ringtone_other_options_text"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <vspacer id="60235">
+                <constraints>
+                  <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </vspacer>
+              <component id="f07cd" class="javax.swing.JLabel" binding="TabOtherTopLabelText">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                    <minimum-size width="950" height="-1"/>
+                    <preferred-size width="950" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text resource-bundle="Strings" key="TabOtherTopLabelText"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="25866" binding="backup_restore" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="20">
+            <margin top="10" left="10" bottom="10" right="10"/>
+            <constraints>
+              <tabbedpane title-resource-bundle="Strings" title-key="tabBackupRestore"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <grid id="ddc2" binding="backup_pane" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="5" left="0" bottom="5" right="0"/>
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="line"/>
+                <children>
+                  <component id="818d" class="javax.swing.JLabel" binding="lbl_backup_text">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="2" hsize-policy="6" anchor="9" fill="0" indent="2" use-parent-layout="false">
+                        <minimum-size width="950" height="-1"/>
+                        <preferred-size width="950" height="-1"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <text resource-bundle="Strings" key="backup_pane_text"/>
+                    </properties>
+                  </component>
+                  <grid id="c5e8" layout-manager="FlowLayout" hgap="25" vgap="5" flow-align="1">
+                    <constraints>
+                      <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="7" anchor="1" fill="0" indent="2" use-parent-layout="false"/>
+                    </constraints>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="21d56" class="javax.swing.JButton" binding="btn_boot_img">
+                        <constraints/>
+                        <properties>
+                          <text resource-bundle="Strings" key="btn_backup_boot_img"/>
+                        </properties>
+                      </component>
+                      <component id="e6a2b" class="javax.swing.JButton" binding="btn_rec_img">
+                        <constraints/>
+                        <properties>
+                          <text resource-bundle="Strings" key="btn_backup_recovery_img"/>
+                        </properties>
+                      </component>
+                      <component id="e2d32" class="javax.swing.JButton" binding="btn_back_system">
+                        <constraints/>
+                        <properties>
+                          <text resource-bundle="Strings" key="btn_backup_system"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                </children>
+              </grid>
+              <grid id="ffa7a" binding="restore_pane" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="5" left="0" bottom="5" right="0"/>
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="line"/>
+                <children>
+                  <component id="fe3cf" class="javax.swing.JLabel" binding="lbl_restore_text">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="6" anchor="9" fill="0" indent="2" use-parent-layout="false">
+                        <minimum-size width="950" height="-1"/>
+                        <preferred-size width="950" height="-1"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <text resource-bundle="Strings" key="restore_pane_text"/>
+                    </properties>
+                  </component>
+                  <grid id="700d8" layout-manager="FlowLayout" hgap="25" vgap="5" flow-align="1">
+                    <constraints>
+                      <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="7" anchor="1" fill="0" indent="2" use-parent-layout="false"/>
+                    </constraints>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="af8b0" class="javax.swing.JButton" binding="btn_restore_boot_image">
+                        <constraints/>
+                        <properties>
+                          <text resource-bundle="Strings" key="btn_restore_boot_img"/>
+                        </properties>
+                      </component>
+                      <component id="9084e" class="javax.swing.JButton" binding="btn_restore_recovery_image">
+                        <constraints/>
+                        <properties>
+                          <text resource-bundle="Strings" key="btn_restore_recovery_img"/>
+                        </properties>
+                      </component>
+                      <component id="dbb5e" class="javax.swing.JButton" binding="btn_restore_all_partitions">
+                        <constraints/>
+                        <properties>
+                          <text resource-bundle="Strings" key="btn_restore_system"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                </children>
+              </grid>
+              <vspacer id="ddaa2">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </vspacer>
+            </children>
+          </grid>
+        </children>
+      </tabbedpane>
+    </children>
+  </grid>
+  <buttonGroups>
+    <group name="msmods_buttonGroup">
+      <member id="60e37"/>
+      <member id="91285"/>
+      <member id="2ad5c"/>
+    </group>
+  </buttonGroups>
+</form>

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+./gradlew assemble buildDependents shadowJar shadowDistZip
+
+cp build/libs/FYT_SC9853i_Extender-all.jar ./FYT_SC9853i_Extender.jar
+
