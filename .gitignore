@@ -1,3 +1,19 @@
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build
+
+# Ignore IntelliJ IDEA folders and project files because of using gradle
+.idea
+*.iml
+
+*.log
+
+# Ignore jdk/jre folders in the repo
+jre
+jdk
+
 # Compiled class file
 *.class
 
@@ -10,6 +26,13 @@
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
+#Windows executables
+*.exe
+
+# MacOS bundle and dmg
+*.bundle
+*.dmg
+ 
 # Package Files #
 *.jar
 *.war
