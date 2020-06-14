@@ -260,7 +260,7 @@
               </component>
             </children>
           </grid>
-          <grid id="25866" binding="backup_restore" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="20">
+          <grid id="25866" binding="backup_restore" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="20">
             <margin top="10" left="10" bottom="10" right="10"/>
             <constraints>
               <tabbedpane title-resource-bundle="Strings" title-key="tabBackupRestore"/>
@@ -312,6 +312,12 @@
                           <text resource-bundle="Strings" key="btn_backup_system"/>
                         </properties>
                       </component>
+                      <component id="70f8c" class="javax.swing.JButton" binding="btn_get_system_info">
+                        <constraints/>
+                        <properties>
+                          <text resource-bundle="Strings" key="btn_get_system_info"/>
+                        </properties>
+                      </component>
                     </children>
                   </grid>
                 </children>
@@ -345,18 +351,21 @@
                       <component id="af8b0" class="javax.swing.JButton" binding="btn_restore_boot_image">
                         <constraints/>
                         <properties>
+                          <enabled value="false"/>
                           <text resource-bundle="Strings" key="btn_restore_boot_img"/>
                         </properties>
                       </component>
                       <component id="9084e" class="javax.swing.JButton" binding="btn_restore_recovery_image">
                         <constraints/>
                         <properties>
+                          <enabled value="false"/>
                           <text resource-bundle="Strings" key="btn_restore_recovery_img"/>
                         </properties>
                       </component>
                       <component id="dbb5e" class="javax.swing.JButton" binding="btn_restore_all_partitions">
                         <constraints/>
                         <properties>
+                          <enabled value="false"/>
                           <text resource-bundle="Strings" key="btn_restore_system"/>
                         </properties>
                       </component>
@@ -364,9 +373,30 @@
                   </grid>
                 </children>
               </grid>
-              <vspacer id="ddaa2">
+              <grid id="f4409" binding="backuptextpanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="5" left="0" bottom="5" right="0"/>
                 <constraints>
-                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="line"/>
+                <children>
+                  <component id="9a29f" class="javax.swing.JLabel" binding="lblWhyBackup">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="2" hsize-policy="6" anchor="9" fill="0" indent="2" use-parent-layout="false">
+                        <minimum-size width="950" height="-1"/>
+                        <preferred-size width="950" height="-1"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <text resource-bundle="Strings" key="lbl_why_backup"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <vspacer id="c7f61">
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
                 </constraints>
               </vspacer>
             </children>

@@ -65,9 +65,12 @@ public class TabOther {
             createstatus = Utils.CreateStandardFlashDrive(myComponent, "disable_window_apk.sh");
         } else if (choice == 1){ //Enable
             createstatus = Utils.CreateStandardFlashDrive(myComponent, "enable_window_apk.sh");
-        } // Don't care about cancel
+        } else if (choice == 2) { //Cancel
+            createstatus = "canceled";
+        }
 
 
+        logger.info("dis_enable_Window_apk: " + createstatus);
         return createstatus;
     }
 }

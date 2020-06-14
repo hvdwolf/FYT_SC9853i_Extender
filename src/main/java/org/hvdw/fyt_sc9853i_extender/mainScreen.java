@@ -65,6 +65,9 @@ public class mainScreen {
     private JPanel radiomodcomboboxpanel;
     private JLabel lblradiomods;
     private JComboBox comboBoxradiomods;
+    private JLabel lblWhyBackup;
+    private JPanel backuptextpanel;
+    private JButton btn_get_system_info;
     private JLabel lblInfo;
 
     // Define the several arrays for the other methods. An interface or getter/setter methods would be more "correct java", but also
@@ -198,7 +201,7 @@ public class mainScreen {
         this.$$$loadLabelText$$$(TabOtherTopLabelText, ResourceBundle.getBundle("Strings").getString("TabOtherTopLabelText"));
         Other.add(TabOtherTopLabelText, new GridConstraints(0, 0, 1, 3, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, new Dimension(950, -1), new Dimension(950, -1), null, 0, false));
         backup_restore = new JPanel();
-        backup_restore.setLayout(new GridLayoutManager(3, 1, new Insets(10, 10, 10, 10), -1, 20));
+        backup_restore.setLayout(new GridLayoutManager(4, 1, new Insets(10, 10, 10, 10), -1, 20));
         tabbedPane1.addTab(ResourceBundle.getBundle("Strings").getString("tabBackupRestore"), backup_restore);
         backup_pane = new JPanel();
         backup_pane.setLayout(new GridLayoutManager(2, 2, new Insets(5, 0, 5, 0), -1, -1));
@@ -219,6 +222,9 @@ public class mainScreen {
         btn_back_system = new JButton();
         this.$$$loadButtonText$$$(btn_back_system, ResourceBundle.getBundle("Strings").getString("btn_backup_system"));
         panel2.add(btn_back_system);
+        btn_get_system_info = new JButton();
+        this.$$$loadButtonText$$$(btn_get_system_info, ResourceBundle.getBundle("Strings").getString("btn_get_system_info"));
+        panel2.add(btn_get_system_info);
         restore_pane = new JPanel();
         restore_pane.setLayout(new GridLayoutManager(2, 1, new Insets(5, 0, 5, 0), -1, -1));
         backup_restore.add(restore_pane, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
@@ -230,16 +236,26 @@ public class mainScreen {
         panel3.setLayout(new FlowLayout(FlowLayout.CENTER, 25, 5));
         restore_pane.add(panel3, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_NORTH, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 2, false));
         btn_restore_boot_image = new JButton();
+        btn_restore_boot_image.setEnabled(false);
         this.$$$loadButtonText$$$(btn_restore_boot_image, ResourceBundle.getBundle("Strings").getString("btn_restore_boot_img"));
         panel3.add(btn_restore_boot_image);
         btn_restore_recovery_image = new JButton();
+        btn_restore_recovery_image.setEnabled(false);
         this.$$$loadButtonText$$$(btn_restore_recovery_image, ResourceBundle.getBundle("Strings").getString("btn_restore_recovery_img"));
         panel3.add(btn_restore_recovery_image);
         btn_restore_all_partitions = new JButton();
+        btn_restore_all_partitions.setEnabled(false);
         this.$$$loadButtonText$$$(btn_restore_all_partitions, ResourceBundle.getBundle("Strings").getString("btn_restore_system"));
         panel3.add(btn_restore_all_partitions);
+        backuptextpanel = new JPanel();
+        backuptextpanel.setLayout(new GridLayoutManager(1, 1, new Insets(5, 0, 5, 0), -1, -1));
+        backup_restore.add(backuptextpanel, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        backuptextpanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.black), null));
+        lblWhyBackup = new JLabel();
+        this.$$$loadLabelText$$$(lblWhyBackup, ResourceBundle.getBundle("Strings").getString("lbl_why_backup"));
+        backuptextpanel.add(lblWhyBackup, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_NORTHWEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_GROW, new Dimension(950, -1), new Dimension(950, -1), null, 2, false));
         final Spacer spacer5 = new Spacer();
-        backup_restore.add(spacer5, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        backup_restore.add(spacer5, new GridConstraints(3, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_VERTICAL, 1, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         ButtonGroup buttonGroup;
         buttonGroup = new ButtonGroup();
         buttonGroup.add(rbtn_original_msmods);
@@ -340,6 +356,11 @@ public class mainScreen {
         comboBoxradiomods.setModel(new DefaultComboBoxModel(radiomods_Strings));
     }
 
+    private void fill_big_jlabel_fields() {
+        //lblWhyBackup.setText(String.format(ProgramTexts.HTML, 950, ResourceBundle.getBundle("Strings").getString("lbl_why_backup"), ProgramTexts.endHTML));
+        lblWhyBackup.setVisible(true);
+    }
+
     // region Action Listeners and radio button groups
     class MenuActionListener implements ActionListener {
 
@@ -432,6 +453,7 @@ public class mainScreen {
         Utils.progressStatus(progressBar, false);
         createmyMenuBar(frame);
         fillComboboxes();
+        fill_big_jlabel_fields();
         progressText.setVisible(false);
         progressBar.setVisible(false);
 
@@ -491,7 +513,9 @@ public class mainScreen {
             public void actionPerformed(ActionEvent actionEvent) {
                 // enable/disable window apk button
                 String success_status = TabOtherFunctions.dis_enable_Window_apk(rootPanel);
-                if ((!"failed".equals(success_status)) && (!"no_flashdrive".equals(success_status))) {
+                if ("canceled".equals(success_status)) {
+                    JOptionPane.showMessageDialog(rootPanel, ResourceBundle.getBundle("Strings").getString("popup_canceled_text"), ResourceBundle.getBundle("Strings").getString("popup_canceled_title"), JOptionPane.INFORMATION_MESSAGE);
+                } else if ((!"failed".equals(success_status)) && (!"no_flashdrive".equals(success_status))) {
                     logger.info("successfully created the disable or enable window apk flashdrive");
                     JOptionPane.showMessageDialog(rootPanel, ResourceBundle.getBundle("Strings").getString("contentCopiedText"), ResourceBundle.getBundle("Strings").getString("contentCopiedTitle"), JOptionPane.INFORMATION_MESSAGE);
                 }
@@ -508,7 +532,7 @@ public class mainScreen {
             }
         });
 
-        //////////////////////////////////// button listeners for Mods panel////////////////////////////////////
+        //////////////////////////////////// button listeners for Backup/Restore panel////////////////////////////////////
 
         btn_boot_img.addActionListener(new ActionListener() {
             @Override
@@ -546,6 +570,19 @@ public class mainScreen {
             }
         });
 
+        btn_get_system_info.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                // button/method to gather system info from the unit
+                String succeeded = Utils.CreateStandardFlashDrive(rootPanel, "get_info.sh");
+                if ((!"failed".equals(succeeded)) && (!"no_flashdrive".equals(succeeded))) {
+                    logger.info("system backup flash drive created");
+                    JOptionPane.showMessageDialog(rootPanel, ResourceBundle.getBundle("Strings").getString("contentCopiedText"), ResourceBundle.getBundle("Strings").getString("contentCopiedTitle"), JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
+        });
+
+        //////////////////////////////////// button listeners for Mods panel////////////////////////////////////
         btnHelp_msmods.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
