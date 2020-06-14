@@ -201,8 +201,7 @@ public class Utils {
         String SelectedDriveFolder;
 
         // Give user info popup to tell what's going to happen
-        JOptionPane.showMessageDialog(myComponent, ResourceBundle.getBundle("Strings").getString("askForFlashdrivedialogtext"), ResourceBundle.getBundle("Strings").getString("askForFlashdrivedialogtitle"), JOptionPane.INFORMATION_MESSAGE);
-
+        JOptionPane.showMessageDialog(myComponent, String.format(ProgramTexts.HTML, 300, ResourceBundle.getBundle("Strings").getString("askForFlashdrivedialogtext"), ProgramTexts.endHTML), ResourceBundle.getBundle("Strings").getString("askForFlashdrivedialogtitle"), JOptionPane.INFORMATION_MESSAGE);
         final JFileChooser chooser = new JFileChooser();
         chooser.setDialogTitle(ResourceBundle.getBundle("Strings").getString("locate_flashdrive"));
         chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
