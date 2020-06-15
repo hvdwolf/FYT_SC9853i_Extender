@@ -1,23 +1,20 @@
 #!/system/bin/sh
 #
-# write the "raw" backup of the necessary partitions.
+# write the "raw" backup of the necessary partitions back to the unit.
 
 
 
-printf "write to boot.raw.img /boot partition ...."
+printf "write boot.raw.img back to boot partition ...."
 dd if=/storage/sdcard1/boot.raw.img of=/dev/block/mmcblk0p25
 
 printf "write recovery.raw.img to partition /recovery ...."
 dd if=/storage/sdcard1/recovery.raw.img of=/dev/block/mmcblk0p3
 
-printf "Now copy the recovery data file from /system/etc/ ...."
-cp /storage/sdcard1/recovery-resource.dat /system/etc/
-
 printf "write u-boot.raw.img to partition /uboot ...."
 dd if=/storage/sdcard1/u-boot.raw.img of=/dev/block/mmcblk0p10
 
 printf "write secvm.raw.img to partition /secvm ...."
-dd if=/dev/block/mmcblk0p7 of=/storage/sdcard1/secvm.raw.img
+dd if=/storage/sdcard1/secvm.raw.img of=/dev/block/mmcblk0p7
 
 printf "write mobilevisor.raw.img to  partition /mobilevisor ...."
 dd if=/storage/sdcard1/mobilevisor.raw.img of=/dev/block/mmcblk0p9
@@ -44,7 +41,7 @@ printf "write vendor.raw.img to partition /vendor ...."
 dd if=/storage/sdcard1/vendor.raw.img of=/dev/block/mmcblk0p28
 
 printf "write system.raw.img to partition /system ...."
-printf "This step can take to 3-4 minutes! Be patient ...."
+printf "This step can take up to 3-4 minutes! Be patient ...."
 dd if=/storage/sdcard1/system.raw.img of=/dev/block/mmcblk0p26
 
 printf "Done!!"

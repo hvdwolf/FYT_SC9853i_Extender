@@ -351,14 +351,14 @@
                       <component id="af8b0" class="javax.swing.JButton" binding="btn_restore_boot_image">
                         <constraints/>
                         <properties>
-                          <enabled value="false"/>
+                          <enabled value="true"/>
                           <text resource-bundle="Strings" key="btn_restore_boot_img"/>
                         </properties>
                       </component>
                       <component id="9084e" class="javax.swing.JButton" binding="btn_restore_recovery_image">
                         <constraints/>
                         <properties>
-                          <enabled value="false"/>
+                          <enabled value="true"/>
                           <text resource-bundle="Strings" key="btn_restore_recovery_img"/>
                         </properties>
                       </component>

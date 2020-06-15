@@ -232,12 +232,33 @@ public class Utils {
             return "";
         }
     }
+
+    public static String getImage(JPanel myComponent, String img_Type) {
+        String selectedImage;
+
+        final JFileChooser chooser = new JFileChooser();
+        chooser.setMultiSelectionEnabled(false);
+        String[] filexts = {"img"};
+        FileFilter filter = new FileNameExtensionFilter("(*.img)", filexts);
+        chooser.setFileFilter(filter);
+        if ("boot.img".equals(img_Type)) {
+            chooser.setDialogTitle(ResourceBundle.getBundle("Strings").getString("locate_boot_img"));
+        } else if ("recovery.img".equals(img_Type)) {
+            chooser.setDialogTitle(ResourceBundle.getBundle("Strings").getString("locate_recovery_img"));
+        }
+        chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        int status = chooser.showOpenDialog(myComponent);
+        if (status == JFileChooser.APPROVE_OPTION) {
+            selectedImage = chooser.getSelectedFile().getPath();
+            return selectedImage;
+        } else {
+            return "";
+        }
+    }
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //////////////////////////////////////  Standard flash drive content  //////////////////////////////////////////////////////////////
-    //// functions below will create the standard content on the flash drive without additional content, like
-    // lsec6521update
-    // lsec_updatesh/lsec.sh
 
     public static boolean deleteDirectory(File directoryToBeDeleted) {
         File[] allContents = directoryToBeDeleted.listFiles();
@@ -251,17 +272,18 @@ public class Utils {
 
     public static boolean eraseFlashdrive( String flashdrive) {
         boolean successfully_erased = true;
+        String erasables[] = {"lsec6521update", "Allapp.pkg", "boot.img", "recovery.img"};
 
         logger.info("eraseFlashdrive: " + flashdrive);
-        // First erase possible lsec6521update and Allapp.pkg in the root
-        File lsec6521update = new File(flashdrive + File.separator + "lsec6521update");
-        if (lsec6521update.exists()){
-            lsec6521update.delete();
+        // First delete possible "erasables" in the root
+        for (String erasable: erasables) {
+            File eraseFile = new File(flashdrive + File.separator + erasable);
+            if (eraseFile.exists()) {
+                logger.info("erase " + erasable);
+                eraseFile.delete();
+            }
         }
-        File Allapp_pkg = new File(flashdrive + File.separator + "Allapp.pkg");
-        if (Allapp_pkg.exists()){
-            Allapp_pkg.delete();
-        }
+
         // Now erase the folder lsec_updatesh with contents
         File lsecsh = new File(flashdrive + File.separator + "lsec_updatesh" + File.separator + "lsec.sh");
         File lsec_updatesh = new File(flashdrive + File.separator + "lsec_updatesh");
@@ -272,6 +294,7 @@ public class Utils {
                 logger.error("Failed to erase folder structure");
             }
         }
+
         return successfully_erased;
     }
     
@@ -284,35 +307,16 @@ public class Utils {
             if(fileStream == null)
                 return null;
 
-            // Don't use this one eraseFlashdrive here as it will do it again on every extracted resource file thereby removing previously extracted files
-            //eraseFlashdrive(FlashDrive);
             // Grab the file name
             String[] chopped = resourcePath.split("\\/");
             String fileName = chopped[chopped.length-1];
-            // First check if we have an Allapp.pkg
-            File Allapp_pkg = new File(flashdrive + File.separator + "Allapp.pkg");
-            if (Allapp_pkg.exists()){
-                Allapp_pkg.delete();
-            }
-            // Then delete and create our file or folder/file
+            // Create our file or folder/file
             if (fileName == "lsec6521update") {
-                File lsec6521update = new File(flashdrive + File.separator + "lsec6521update");
-                if (lsec6521update.exists()){
-                    lsec6521update.delete();
-                }
                 resourceFile = Paths.get(flashdrive + File.separator + "lsec6521update");
             } else{
-                File lsecsh = new File(flashdrive + File.separator + "lsec_updatesh" + File.separator + "lsec.sh");
-                File lsec_updatesh = new File(flashdrive + File.separator + "lsec_updatesh");
-                if ((lsecsh.exists()) || (lsec_updatesh.exists())) {
-                    boolean successfully_deleted = deleteDirectory(lsec_updatesh);
-                    if (!successfully_deleted) {
-                        copyresult = "Failed to erase folder structure";
-                        logger.error("Failed to erase folder structure");
-                    }
-                }
                 resourceFile = Paths.get(flashdrive + File.separator + "lsec_updatesh" + File.separator + "lsec.sh");
             }
+
             // First create lsec_updatesh folder on flash drive
             try {
                 Files.createDirectories(Paths.get(flashdrive + File.separator + "lsec_updatesh"));
@@ -350,11 +354,12 @@ public class Utils {
     }
 
     public static String CreateStandardFlashDrive (JPanel myComponent, String Script){
-        // Give user info popup to tell what's going to happen
-        //JOptionPane.showMessageDialog(myComponent, ResourceBundle.getBundle("Strings").getString("askForFlashdrivedialogtext"), ResourceBundle.getBundle("Strings").getString("askForFlashdrivedialogtitle"), JOptionPane.INFORMATION_MESSAGE);
+
         // Ask for flash drive
         String FlashDrive = Utils.getFlashDrive(myComponent);
         if (!"".equals(FlashDrive)) {
+            // wipe flash drive
+            eraseFlashdrive(FlashDrive);
             String lsec6521updatecopied = Utils.extract_resource_to_flash("lsec6521update", FlashDrive);
             String scriptcopied = Utils.extract_resource_to_flash("scripts/"+Script, FlashDrive);
             if (("success".equals(lsec6521updatecopied)) && ("success").equals(scriptcopied)) {
