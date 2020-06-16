@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=FYT_SC9853i_Extender
+Comment=FYT_SC9853i_Extender gui flsh tool for FYT compatible SC9853i units
+Exec=/usr/bin/fyt_sc9853i_extender
+Icon=/usr/share/fyt_sc9853i_extender/FYT_SC9853i_Extender-48x48
+Terminal=false
+Type=Application
+Categories=Graphics;Viewer;Utility;
+StartupNotify=true

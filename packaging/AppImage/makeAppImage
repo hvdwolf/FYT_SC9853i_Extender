@@ -1,0 +1,69 @@
+#!/bin/bash
+
+# Script to make a universal appimage
+# version 0.1, 2020-01-05, hvdw
+
+# Requirements:
+# appimagetool: Download from https://github.com/AppImage/AppImageKit/releases
+# jre V11: download from https://adoptopenjdk.net/releases.html. Untar it and rename resulting folder to jre (tokeepit simple over the versions)
+
+
+
+
+VER="1.00"
+#
+printf "Remove, create and step into our AppDir\n\n"
+#
+AppDir="FYT_SC9853i_Extender-x86_64"
+rm -rf ${AppDir}
+mkdir -p ${AppDir}
+cd ${AppDir}
+
+#
+printf "Copy the complete jar into the AppDir\n\n"
+#
+cp ../../../build/libs/FYT_SC9853i_Extender-all.jar FYT_SC9853i_Extender.jar
+
+printf "Create folders and copy program icon and desktop file\n\n"
+mkdir -p usr/share/fyt_sc9853i_extender
+mkdir -p usr/share/applications
+
+cp ../FYT_SC9853i_Extender-48x48.png usr/share/fyt_sc9853i_extender
+cp ../FYT_SC9853i_Extender-48x48.png .
+mv FYT_SC9853i_Extender.jar usr/share/fyt_sc9853i_extender
+cp ../fyt_sc9853i_extender.desktop usr/share/applications
+cp ../fyt_sc9853i_extender.desktop .
+
+printf "Now copy the unpacked jre folder into our folder structure\n\n"
+cp -a ../jre .
+
+#
+printf "Create the AppRun script\n\n"
+#
+#cd usr/bin
+cat > ./AppRun <<\EOF
+#!/bin/sh
+HERE=$(dirname $(readlink -f "${0}"))
+export LD_LIBRARY_PATH="${HERE}"/usr/lib:$PATH
+export JAVA_HOME="${HERE}"/jre
+export PATH="${HERE}"/usr/bin:SPATH
+"${HERE}"/jre/bin/java -jar "${HERE}"/usr/share/fyt_sc9853i_extender/FYT_SC9853i_Extender.jar
+EOF
+
+chmod a+x ./AppRun
+
+#
+# We're done in the AppDir
+cd ..
+
+#
+printf "Create the AppImage\n\n"
+#
+wget -c https://github.com/AppImage/AppImageKit/releases/download/12/appimagetool-x86_64.AppImage
+chmod +x appimagetool-x86_64.AppImage
+./appimagetool-x86_64.AppImage -n ${AppDir}
+
+#
+printf "Rename the created app image\n\n"
+#
+mv FYT_SC9853i_Extender-x86_64.AppImage FYT_SC9853i_Extender-${VER}-x86_64.AppImage
