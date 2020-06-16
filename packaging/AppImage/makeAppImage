@@ -5,7 +5,7 @@
 
 # Requirements:
 # appimagetool: Download from https://github.com/AppImage/AppImageKit/releases
-# jre V11: download from https://adoptopenjdk.net/releases.html. Untar it and rename resulting folder to jre (to keepit simple over the versions)
+# jre V11: download 64bit linux jre from https://adoptopenjdk.net/releases.html. Untar it and rename resulting folder to jre (to keep it simple over the versions)
 
 
 
